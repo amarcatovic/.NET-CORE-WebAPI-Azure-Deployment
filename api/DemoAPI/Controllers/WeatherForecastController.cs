@@ -23,6 +23,12 @@ namespace DemoAPI.Controllers
             _logger = logger;
         }
 
+        [HttpGet("{index}")]
+        public IActionResult GetOne(int index)
+        {
+            return Ok(Summaries[index % Summaries.Length]);
+        }
+
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
